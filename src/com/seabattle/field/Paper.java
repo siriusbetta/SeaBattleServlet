@@ -28,7 +28,11 @@ public class Paper {
 	Ship gunboat;
 	public Paper() {
 		gameField = new HashMap<Integer, Water>();
-		createNewField();
+		//makeNewField();
+	}
+	
+	void makeNewField(){
+		createClearField();
 		
 		//add battleship into the game
 		battleShip = new BattleShip();
@@ -215,7 +219,7 @@ public class Paper {
 		 }
 	}
 	
-	void createNewField(){
+	void createClearField(){
 		for(int i = 0; i < 10; i++){
 			for(int j = 0; j< 10; j++){
 				gameField.put(i*10 + j, new Water(i, j));
@@ -225,6 +229,7 @@ public class Paper {
 	}
 	
 	public Map<Integer, Water> getGameField(){
+		makeNewField();
 		return gameField;
 	}
 	public String toString(){

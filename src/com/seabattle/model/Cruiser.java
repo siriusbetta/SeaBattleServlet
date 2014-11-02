@@ -17,8 +17,8 @@ public class Cruiser extends Ship{
 		lengthOfShip = 3;
 		rnd = new Random();
 		
-		this.x = rnd.nextInt(7);
-	    this.y = rnd.nextInt(7);
+		this.x = rnd.nextInt(8);
+	    this.y = rnd.nextInt(8);
 	    if(rnd.nextBoolean()){
 			orientOnField = 1;
 		}else{

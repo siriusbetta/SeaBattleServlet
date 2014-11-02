@@ -17,8 +17,8 @@ public class BattleShip extends Ship{
 		lengthOfShip = 4;
 		rnd = new Random();
 		
-		this.x = rnd.nextInt(6);
-	    this.y = rnd.nextInt(6);
+		this.x = rnd.nextInt(7);
+	    this.y = rnd.nextInt(7);
 	    if(rnd.nextBoolean()){
 			orientOnField = 1;
 		}else{

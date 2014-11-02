@@ -17,8 +17,8 @@ public class Destroyer extends Ship{
 		shipName = "Destroyer";
 		lengthOfShip = 2;
 		rnd = new Random();
-		x = rnd.nextInt(8);
-	    y = rnd.nextInt(8);
+		x = rnd.nextInt(9);
+	    y = rnd.nextInt(9);
 	    if(rnd.nextBoolean()){
 			orientOnField = 1;
 		}else{

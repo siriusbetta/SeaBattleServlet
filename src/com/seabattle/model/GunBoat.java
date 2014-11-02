@@ -16,8 +16,8 @@ public class GunBoat extends Ship{
 		shipName = "Gunboat";
 		rnd = new Random();
 		lengthOfShip = 1;
-		x = rnd.nextInt(9);
-	    y = rnd.nextInt(9);
+		x = rnd.nextInt(10);
+	    y = rnd.nextInt(10);
 	    if(rnd.nextBoolean()){
 			orientOnField = 1;
 		}else{
