@@ -6,16 +6,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Title of the document</title>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script>
-            $(document).ready(function() {                        // When the HTML DOM is ready loading, then execute the following function...
-                $('#sub').click(function() {               // Locate HTML DOM element with ID "somebutton" and assign the following function to its "click" event...
-                    $.get('/doServlet', function(responseText) { // Execute Ajax GET request on URL of "someservlet" and execute the following function with Ajax response text...
-                        $('#somediv').text(responseText);         // Locate HTML DOM element with ID "somediv" and set its text content with the response text.
-                    });
-                });
-            });
-        </script>
 <style>
 table, th, td{
 	border: 1px solid black;
@@ -57,7 +47,7 @@ table, th, td{
 <div style = "width: 500px; height: 70px; text-align: center; 
 margin: auto; position: relative;" >
 		<div style = "position:absolute; bottom:0; left:234px;">
-			<button id = "sub">Submit</button>
+			
 		</div>
 </div>
 	
