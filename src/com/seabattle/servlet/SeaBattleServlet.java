@@ -2,8 +2,11 @@ package com.seabattle.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -21,6 +24,7 @@ public class SeaBattleServlet extends HttpServlet{
 	Paper paper;
 	public void init() throws ServletException{
 		paper = new Paper();
+		 
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -48,6 +52,18 @@ public class SeaBattleServlet extends HttpServlet{
 			}
 		}
 		return water;
+	}
+	
+	public List<Integer> ShipsCoordinats(Map<Integer, Water> gameField){
+		Set<Entry<Integer, Water>> entries = gameField.entrySet();
+		List<Integer> shipCoordinates = new ArrayList<Integer>();
+		Iterator<Entry<Integer, Water>> iter = entries.iterator();
+		while(iter.hasNext()){
+			Entry<Integer, Water> entry = iter.next();
+			if(entry.getValue().getDangerWater() == 1)
+				shipCoordinates.add(entry.getKey());
+		}
+		return shipCoordinates;
 	}
 }
 
