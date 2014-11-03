@@ -3,7 +3,6 @@
   <groupId>SeaBattleServlet</groupId>
   <artifactId>SeaBattleServlet</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
@@ -37,4 +36,5 @@
     <version>1.2</version>
 </dependency>
   </dependencies>
+  <packaging>war</packaging>
 </project>
