@@ -7,7 +7,7 @@ import java.util.List;
 public interface CoordiantsDAO {
 	public void setDataSource(Connection con);
 	public void create(List<Coordinats> shipsCoordinats) throws SQLException;
-	public List<Coordinats> getCoordinats(int id);
+	public List<Coordinats> getCoordinats(int id) throws SQLException;
 	public void delete(Integer id);
 	
 }

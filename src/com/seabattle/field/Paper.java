@@ -1,9 +1,13 @@
 package com.seabattle.field;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import com.seabattle.database.Coordinats;
 import com.seabattle.model.BattleShip;
 import com.seabattle.model.Cruiser;
 import com.seabattle.model.Destroyer;
@@ -248,4 +252,45 @@ public class Paper {
 		}
 		return out;
 	}
+	
+	public List<Water> mapToList(Map<Integer, Water> map){
+		List<Water> water = new ArrayList<Water>();
+		for(int i = 0; i < 10; i++){
+			for(int j = 0; j < 10; j++){
+				water.add(i * 10 + j, map.get(i * 10 + j));
+			}
+		}
+		return water;
+	}
+	
+	public List<Coordinats> ShipsCoordinats(Map<Integer, Water> gameField){
+		List<Coordinats> shipCoordinates = new ArrayList<>();
+		for(int i = 0; i < 10; i++){
+			for(int j = 0; j < 10; j++){
+				Water water = gameField.get(i * 10 + j);
+				if(water.getDangerWater() == 1){
+					shipCoordinates.add(new Coordinats(water.getX(), water.getY()));
+				}
+			}
+		}
+		return shipCoordinates;
+	}
+	
+	public Map<Integer, Water> placeShips(List<Coordinats> coor){
+		Map<Integer, Water> gameField = new HashMap<>();
+		for(int i = 0; i < 10; i++){
+			for(int j = 0; j < 10; j++){
+				gameField.put(i * 10 + j, new Water(i, j));
+			}
+		}
+		Iterator<Coordinats> iter = coor.iterator();
+		while(iter.hasNext()){
+			Coordinats coordinata = iter.next();
+			Water water = gameField.get(coordinata.getX() * 10 + coordinata.getY());
+			water.setDangerWater(1);
+			gameField.put(coordinata.getX() * 10 + coordinata.getY(), water);
+		}
+		return gameField;
+	}
+	
 }

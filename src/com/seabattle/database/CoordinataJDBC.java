@@ -3,6 +3,7 @@ package com.seabattle.database;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -39,9 +40,17 @@ public class CoordinataJDBC implements CoordiantsDAO{
 	}
 
 	@Override
-	public List<Coordinats> getCoordinats(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Coordinats> getCoordinats(int id) throws SQLException {
+		String SQL = "select id, x, y from coordinats where id = ?";
+		List<Coordinats> coordinats = new ArrayList<>();
+		ps = (PreparedStatement) con.prepareStatement(SQL);
+		ps.setInt(1, id);
+		rs = ps.executeQuery();
+		while(rs.next()){
+			Coordinats coor = new Coordinats(rs.getInt("x"), rs.getInt("y"));
+			coordinats.add(coor);
+		}
+		return coordinats;
 	}
 
 	@Override
