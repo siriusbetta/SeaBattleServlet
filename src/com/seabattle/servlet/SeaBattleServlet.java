@@ -28,7 +28,6 @@ public class SeaBattleServlet extends HttpServlet{
 		Map<Integer, Water> gameField = paper.getGameField();
 		List<Water> field = mapToList(gameField);
 		request.setAttribute("gameField", field);
-		System.out.println("asd");
 		ServletContext sc = getServletContext();
 		RequestDispatcher rd = sc.getRequestDispatcher("/seabattle.jsp");
 		rd.forward(request, response);
