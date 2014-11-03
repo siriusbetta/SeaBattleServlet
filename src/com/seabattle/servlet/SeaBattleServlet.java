@@ -1,6 +1,8 @@
 package com.seabattle.servlet;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -16,21 +18,38 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.seabattle.database.CoordinataJDBC;
+import com.seabattle.database.Coordinats;
+import com.seabattle.database.CoordinatsMapper;
 import com.seabattle.field.Paper;
 import com.seabattle.model.Water;
 
 @WebServlet(name = "Simple servlet", description = "This is simple servlet", urlPatterns = "/doServlet")
 public class SeaBattleServlet extends HttpServlet{
 	Paper paper;
+	Connection con;
+	CoordinataJDBC queries;
 	public void init() throws ServletException{
 		paper = new Paper();
-		 
+		con = (Connection) getServletContext().getAttribute("DBConnection");
+		queries = new CoordinataJDBC();
+		queries.setDataSource(con);
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException{
 		Map<Integer, Water> gameField = paper.getGameField();
 		List<Water> field = mapToList(gameField);
+		List<Coordinats> ships = ShipsCoordinats(gameField);
+		System.out.println(ships.get(4).getX());
+		
+		try {
+			queries.create(ships);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		request.setAttribute("gameField", field);
 		ServletContext sc = getServletContext();
 		RequestDispatcher rd = sc.getRequestDispatcher("/seabattle.jsp");
@@ -54,14 +73,15 @@ public class SeaBattleServlet extends HttpServlet{
 		return water;
 	}
 	
-	public List<Integer> ShipsCoordinats(Map<Integer, Water> gameField){
-		Set<Entry<Integer, Water>> entries = gameField.entrySet();
-		List<Integer> shipCoordinates = new ArrayList<Integer>();
-		Iterator<Entry<Integer, Water>> iter = entries.iterator();
-		while(iter.hasNext()){
-			Entry<Integer, Water> entry = iter.next();
-			if(entry.getValue().getDangerWater() == 1)
-				shipCoordinates.add(entry.getKey());
+	public List<Coordinats> ShipsCoordinats(Map<Integer, Water> gameField){
+		List<Coordinats> shipCoordinates = new ArrayList<>();
+		for(int i = 0; i < 10; i++){
+			for(int j = 0; j < 10; j++){
+				Water water = gameField.get(i * 10 + j);
+				if(water.getDangerWater() == 1){
+					shipCoordinates.add(new Coordinats(water.getX(), water.getY()));
+				}
+			}
 		}
 		return shipCoordinates;
 	}
