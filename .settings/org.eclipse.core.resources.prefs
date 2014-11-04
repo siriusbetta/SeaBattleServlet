@@ -1,2 +1,14 @@
 eclipse.preferences.version=1
-encoding//src/com/seabattle/field/Paper.java=UTF-8
+encoding//src/com/seabattle/database/CoordiantsDAO.java=UTF-8
+encoding//src/com/seabattle/database/CoordinataJDBC.java=UTF-8
+encoding//src/com/seabattle/database/Coordinats.java=UTF-8
+encoding//src/com/seabattle/database/DBConectionManager.java=UTF-8
+encoding//src/com/seabattle/logic/GameField.java=UTF-8
+encoding//src/com/seabattle/model/BattleShip.java=UTF-8
+encoding//src/com/seabattle/model/Cruiser.java=UTF-8
+encoding//src/com/seabattle/model/Destroyer.java=UTF-8
+encoding//src/com/seabattle/model/GunBoat.java=UTF-8
+encoding//src/com/seabattle/model/Ship.java=UTF-8
+encoding//src/com/seabattle/model/Water.java=UTF-8
+encoding//src/com/seabattle/servlet/DatabaseContextListener.java=UTF-8
+encoding//src/com/seabattle/servlet/SeaBattleServlet.java=UTF-8

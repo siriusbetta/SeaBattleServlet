@@ -4,14 +4,18 @@ import java.util.Random;
 /***
  * 
  * @author Alexey Konyshev
- * <h1>Gunboat</h1>
- * The model of ship. Occupies one cell on the field.
- *
+ * Модель корабля, линкор. Занимает 1 клетки.
  */
 public class GunBoat extends Ship{
 	private String shipName;
 	
 	Random rnd;
+	/***
+	 * Конструктор- определяет имя, размер и координаты.
+	 * Положение: горизонтальное или вертикальное.
+	 * Координаты задаются случайным образом. Поле 10 клеток, корабль 1 клетки, 
+	 *
+	 */
 	public GunBoat() {
 		shipName = "Gunboat";
 		rnd = new Random();

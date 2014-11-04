@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Title of the document</title>
+<title>Seabattle test solution</title>
 <style>
 table, th, td{
 	border: 1px solid black;

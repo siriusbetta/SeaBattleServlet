@@ -4,19 +4,22 @@ import java.util.Random;
 /***
  * 
  * @author Alexey Konyshev
- * <h1>Cruiser</h1
- * <p>The model of ship</p>
- * occupies 3 cells
+ * Модель корабля, крейсер. Занимает 3 клетки.
  */
 public class Cruiser extends Ship{
 	
 	Random rnd;
+	/***
+	 * Конструктор- определяет имя, размер и координаты.
+	 * Положение: горизонтальное или вертикальное.
+	 * Координаты задаются случайным образом. Поле 10 клеток, корабль 3 клетки, 
+	 * координаты задаются от 0 до 8, чтобы хвост корабля не вышел за пределы
+	 * игрового поля
+	 */
 	public Cruiser() {
-		// TODO Auto-generated constructor stub
 		shipName = "Cruiser";
 		lengthOfShip = 3;
 		rnd = new Random();
-		
 		this.x = rnd.nextInt(8);
 	    this.y = rnd.nextInt(8);
 	    if(rnd.nextBoolean()){

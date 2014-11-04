@@ -2,12 +2,14 @@ package com.seabattle.model;
 /***
  * 
  * @author Alexey Konyshev
- * <h1>Water</h1>
- * The model of field cell
- *
+ *	Модель ячейки игрового поля.
  */
 public class Water{
-	
+	/***
+	 * определяет занятость клетки игрового поля: 1 - занято, -1 - не занято, но находится
+	 * в непосредственной близости с кораблем и запрещенно занимать, 0  - свободно для 
+	 * размещения
+	 */
 	private int dangerWater;
 	
 	private int x;

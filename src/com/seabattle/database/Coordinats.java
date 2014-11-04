@@ -1,5 +1,9 @@
 package com.seabattle.database;
-
+/***
+ * 
+ * @author Alexey Konyshev
+ * Модель координат корабля. 
+ */
 public class Coordinats {
 	private int id;
 	private int x;

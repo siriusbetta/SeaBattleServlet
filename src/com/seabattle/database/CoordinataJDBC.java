@@ -8,16 +8,28 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.mysql.jdbc.PreparedStatement;
-
+/***
+ * 
+ * @author Alexey Konyshev
+ * класс содержит методы переопределенные в интерфейсе DAO
+ */
 public class CoordinataJDBC implements CoordiantsDAO{
 	PreparedStatement ps = null;
 	Connection con = null;
 	ResultSet rs = null;
+	/***
+	 * устанавливает соединение с базой данных
+	 * @param con Connection 
+	 */
 	@Override
 	public void setDataSource(Connection con) {
 		this.con = con; 
 	}
-
+	/***
+	 * create() вводит в базу данных координаты кораблей
+	 * @param shipsCoordinats Лист с координатами кораблей
+	 * @throws SQLException выбрасывает SQL исключение
+	 */
 	@Override
 	public void create(List<Coordinats> shipsCoordinats) throws SQLException {
 		String SQL = "insert into game_sets(id, time_creation) values (?,?)";
@@ -38,7 +50,12 @@ public class CoordinataJDBC implements CoordiantsDAO{
 		}
 		
 	}
-
+	/***
+	 * getCoordiants() извлекает из базы данных координаты в соответсвии с id
+	 * @param id игрового поля с установленными координатами
+	 * @return List с координатами кораблей
+	 * @throws SQLException выбрасывает SQL исключение
+	 */
 	@Override
 	public List<Coordinats> getCoordinats(int id) throws SQLException {
 		String SQL = "select id, x, y from coordinats where id = ?";
@@ -51,12 +68,6 @@ public class CoordinataJDBC implements CoordiantsDAO{
 			coordinats.add(coor);
 		}
 		return coordinats;
-	}
-
-	@Override
-	public void delete(Integer id) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

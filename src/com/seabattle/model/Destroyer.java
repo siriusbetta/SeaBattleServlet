@@ -4,15 +4,19 @@ import java.util.Random;
 /***
  * 
  * @author Alexey Konyshev
- * <h1>Destroyer</h>
- *The model o f ship. Occupies two cell of the game field
- *Inherit from the Ship
+ * Модель корабля, линкор. Занимает 2 клетки.
  */
 public class Destroyer extends Ship{
 	private String shipName;
 	
 	Random rnd;
-	
+	/***
+	 * Конструктор- определяет имя, размер и координаты.
+	 * Положение: горизонтальное или вертикальное.
+	 * Координаты задаются случайным образом. Поле 10 клеток, корабль 2 клетки, 
+	 * координаты задаются от 0 до 9, чтобы хвост корабля не вышел за пределы
+	 * игрового поля
+	 */
 	public Destroyer() {
 		shipName = "Destroyer";
 		lengthOfShip = 2;

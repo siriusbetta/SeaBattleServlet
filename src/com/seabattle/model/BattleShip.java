@@ -4,14 +4,19 @@ import java.util.Random;
 /***
  * 
  * @author Alexey Konyshev
- * <h1>BattleShip</h1>
- * <p>Model of ship
- * occupies 4 cell on the field
- * </p>
+ *	Модель корабля, линкор. Занимает 4 клетки.
+ * 
  */
 public class BattleShip extends Ship{
 	
 	Random rnd;
+	/***
+	 * Конструктор- определяет имя, размер и координаты.
+	 * Положение: горизонтальное или вертикальное.
+	 * Координаты задаются случайным образом. Поле 10 клеток, корабль 4 клетки, 
+	 * координаты задаются от 0 до 7, чтобы хвост корабля не вышел за пределы
+	 * игрового поля
+	 */
 	public BattleShip() {
 		shipName = "Battleship";
 		lengthOfShip = 4;

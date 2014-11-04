@@ -9,7 +9,12 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
 import com.seabattle.database.DBConectionManager;
-
+/***
+ * 
+ * @author Alexey Konyshev
+ * Листенер создает соединение с базой данных как обьявляется сервлет
+ *
+ */
 @WebListener
 public class DatabaseContextListener implements ServletContextListener{
 
@@ -22,7 +27,7 @@ public class DatabaseContextListener implements ServletContextListener{
 			e.printStackTrace();
 		}
 	}
-
+	
 	@Override
 	public void contextInitialized(ServletContextEvent servletContex) {
 		ServletContext ctx = servletContex.getServletContext();
